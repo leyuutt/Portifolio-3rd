@@ -1,13 +1,30 @@
 import React from 'react'
 import { words } from '../../constants/index'
 import Button from '../Button'
-import HeroExperience from './HeroExperience'
+import HeroExperience from '../HeroModels/HeroExperience'
+import gsap from 'gsap'
+import { useGSAP } from '@gsap/react'
 const Hero = () => {
+    useGSAP(() =>
+    gsap.fromTo('.hero-text h1',
+        {
+            y:50,
+            opacity:0,
+        },
+    {
+        y:0,
+        opacity:1,
+        stagger:0.1,
+        duration:0.6,
+        ease: 'power2.inOut'
+    }
+    )
+    )
   return (
    <section id="hero" className="relative overflow-hidden">
     <div className="absolute top-0 left-0 z-10">
     <img src="/images/bg.png" alt="background"/>
-    </div>
+    </div>      
 
 
     <div className="hero-layout">
@@ -51,7 +68,7 @@ const Hero = () => {
 
 
         <figure>
-            <div className="hero-3d-layout overflow-hidden rounded-2xl border-2 border-[#ff91c1]/70 shadow-[0_0_28px_rgba(255,105,180,0.22)]">
+            <div className="hero-3d-layout overflow-hidden rounded-2xl">
               <HeroExperience />
             </div>
         </figure>

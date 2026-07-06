@@ -224,21 +224,22 @@ section {
 
     .bg-circle {
       @apply absolute -right-10 origin-center top-1/2 -translate-y-1/2 
-        w-[120%] h-[120%] group-hover:size-10 group-hover:right-10
+        w-[120%] h-[120%] group-hover:opacity-0
         rounded-full bg-[#f3a6c8] transition-all duration-500;
     }
 
     .text {
-      @apply uppercase md:text-lg text-[#3a163d] font-semibold pr-12 transition-all duration-500
+      @apply uppercase md:text-lg text-[#3a163d] font-semibold group-hover:pr-12 transition-all duration-500
         group-hover:text-[#fff4fa] group-hover:-translate-x-5 xl:translate-x-0 -translate-x-5;
     }
 
     .arrow-wrapper {
       @apply bg-[#fff4fa] group-hover:bg-[#f3a6c8] size-10 rounded-full absolute right-3 md:right-5 top-1/2 
-        -translate-y-1/2 flex justify-center items-center overflow-hidden;
+        -translate-y-1/2 scale-75 opacity-0 pointer-events-none group-hover:scale-100 group-hover:opacity-100
+        flex justify-center items-center overflow-hidden transition-all duration-300;
 
       img {
-        @apply size-5 xl:-translate-y-32 translate-y-0 animate-bounce group-hover:translate-y-0 transition-all duration-500;
+        @apply size-5 animate-bounce;
       }
     }
   }
