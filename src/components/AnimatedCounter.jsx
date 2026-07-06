@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { counterItems } from '../constants'
+import EdlExperience from './HeroModels/EdlExperience'
 
 const Counter = ({ value, suffix }) => {
   const [count, setCount] = useState(0)
@@ -38,8 +39,13 @@ const Counter = ({ value, suffix }) => {
 
 const AnimatedCounter = () => {
   return (
-   <div id="counter" className="padding-x-lg min-h-dvh scroll-mt-6 flex items-start py-6 md:py-10">
-    <div className="mx-auto grid w-full max-w-6xl grid-cols-1 gap-6 md:grid-cols-2">
+   <div id="counter" className="padding-x-lg min-h-dvh scroll-mt-6 py-6 md:py-10">
+    <div className="mx-auto grid w-full max-w-7xl items-center gap-8 lg:grid-cols-2">
+      <div className="h-[50vh] min-h-96 overflow-hidden rounded-2xl border border-[#f3a6c8]/20 bg-[#17151c] lg:h-[75vh]">
+        <EdlExperience />
+      </div>
+
+      <div className="grid gap-6">
         {counterItems.map((item)=>(
 
         <div key={item.label} className="min-h-64 rounded-2xl border border-[#f3a6c8]/20 bg-zinc-900 p-10 flex flex-col justify-center shadow-[0_20px_50px_rgba(0,0,0,0.3)]">
@@ -53,6 +59,7 @@ const AnimatedCounter = () => {
         )
             
         )}   
+      </div>
     </div>
    </div>
   )
